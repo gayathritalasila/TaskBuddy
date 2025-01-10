@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures consistent box model */
+}
+
+html, body {
+    height: 100%; /* Ensures the body fills the viewport */
+    overflow: hidden; /* Prevents scrolling */
+}
+.container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #fff9f9;
+}
+
+.left-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo-row {
+    display: flex;
+    align-items: center; /* Aligns TaskIcon and logo-text vertically */
+    gap: 10px; /* Adds space between TaskIcon and logo-text */
+}
+
+.logo-text {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 2rem; /* Adjusted for responsiveness */
+    font-weight: 700;
+    line-height: 2.5rem;
+    text-align: center;
+    color: #7B1984;
+}
+
+.tagline {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #6b7280;
+    margin-top: 10px;
+    text-align: center;
+    max-width: 80%; /* Restrict width for better scaling */
+}
+
+.google-button {
+    margin-top: 20px;
+    width: 80%; /* Adjust width relative to viewport */
+    max-width: 400px; /* Restrict maximum width */
+    height: 50px; /* Adjusted for scaling */
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 1rem; /* Adjusted for scaling */
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 700;
+    text-align: center;
+}
+
+.right-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.right-section img, 
+.right-section svg {
+    max-width: 100%; /* Adjusts image to fit within the section */
+    height: auto;
+    object-fit: contain;
+}

@@ -1,0 +1,105 @@
+/* Board View Container */
+.board-view {
+  display: flex;
+  gap: 24px;
+  padding: 16px;
+  overflow-x: auto;
+}
+
+/* Task Board */
+.task-board {
+  display: flex;
+  gap: 24px;
+}
+
+/* Task Column */
+.task-column {
+  flex: 1;
+  min-width: 300px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Column Header */
+.column-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 12px;
+  color: #fff;
+  margin-bottom: 16px;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.column-header.todo {
+  background-color: #d3b7f6;
+}
+
+.column-header.in-progress {
+  background-color: #a3d5f3;
+}
+
+.column-header.completed {
+  background-color: #b9e4c9;
+}
+
+/* Task List */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Task Card */
+.task-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Task Title */
+.task-title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Task Metadata */
+.task-category, .task-due-date {
+  font-size: 0.875rem;
+  color: #555;
+}
+
+.task-category {
+  text-transform: capitalize;
+}
+
+.task-due-date {
+  text-align: right;
+}
+
+/* Empty State */
+.empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  color: #777;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+}

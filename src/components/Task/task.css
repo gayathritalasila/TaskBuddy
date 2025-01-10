@@ -1,0 +1,345 @@
+/* Overall TaskBuddy Container */
+.taskbuddy-container {
+    font-family: "Mulish", sans-serif;
+    color: #2F2F2F;
+    background-color: #F8F9FA;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.main-content {
+    flex: 1; /* Takes up the remaining space below the navbar */
+    overflow-y: auto; /* Enables vertical scrolling */
+    padding: 16px; /* Adds padding around the content */
+  }
+  
+/* Navbar Section */
+.navbar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+    padding: 16px 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+/* Left Section (Logo) */
+.navbar-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2F2F2F;
+}
+
+.task-icon {
+    width: 32px;
+    height: 32px;
+}
+
+/* Middle Section (View Options) */
+.navbar-middle {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.view-option {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #6C757D;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px 8px;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.view-option.active {
+    font-weight: bold;
+    color: #2F2F2F;
+    text-decoration: none;
+    position: relative;
+}
+
+.icon {
+    font-size: 16px;
+    color: inherit;
+}
+
+.view-option.active::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #2F2F2F;
+}
+
+.view-option.active .icon svg {
+    color: #2F2F2F;
+}
+
+
+/* Right Section (User Info & Logout) */
+.navbar-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2F2F2F;
+}
+
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #E0E0E0;
+}
+
+.logout-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #FF5555;
+    background-color: #FFEDED;
+    border: 1px solid #FFE0E0;
+    border-radius: 12px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.logout-button:hover {
+    background-color: #FFCCCC;
+    transform: translateY(-2px);
+}
+
+/* Filters Section */
+.filters {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 30px;
+    width: 100%;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.filter-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.search-create-group {
+    display: flex;
+    /* Create a flex container for filters */
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
+}
+
+.filter-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #2F2F2F;
+}
+
+.filter-dropdown-wrapper {
+  margin-right: 16px;
+}
+
+.filter-dropdown {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.filter-dropdown:hover {
+  background-color: #f9f9f9;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #E0E0E0;
+    border-radius: 24px;
+    padding: 8px 12px;
+    width: 200px;
+    background-color: #fff;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    font-size: 14px;
+    flex: 1;
+    padding: 4px 0;
+    background-color: transparent;
+}
+
+.search-bar svg {
+    width: 20px;
+    height: 20px;
+    color: #999;
+}
+
+.add-task-button {
+    background-color: #7B1984;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 20px;
+    /* Adjust border radius */
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-task-button:hover {
+    background-color: #5A125A;
+}
+
+.task-section {
+    margin: 16px 32px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+  }
+
+  /* Ensure buttons are horizontally aligned */
+.task-section .action-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px; /* Space between buttons */
+  margin: 0;
+}
+
+
+  .task-section .table input {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 100%;
+    font-size: 0.9rem;
+  }
+  
+  .task-section .table select {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 0.9rem;
+  }
+  
+  .task-section .MuiButton-contained {
+    background-color: #6200ea;
+    color: #fff;
+    border-radius: 20px;
+    text-transform: none;
+  }
+  
+  .task-section .MuiButton-outlined {
+    border-color: #6200ea;
+    color: #6200ea;
+    border-radius: 20px;
+    text-transform: none;
+  }
+  .task-section-header {
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #ccc;
+  background-color: #fff;
+  }
+
+  .task-section-header.todo{
+    background-color: #f8e5f7;
+  }
+  .task-section-header.in-progress{
+    background-color: #85D9F1;
+  }
+  .task-section-header.completed{
+    background-color: #CEFFCC;
+  }
+  
+  .task-section-header h6 {
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  .add-task {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .add-task input {
+    flex: 1;
+    margin-right: 16px;
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table th,
+  .table td {
+    text-align: left;
+    padding: 8px 16px;
+  }
+  
+  .table th {
+    background-color: #f9f9f9;
+    font-weight: bold;
+  }
+  
+  .table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .action-icons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
