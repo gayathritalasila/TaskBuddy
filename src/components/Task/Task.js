@@ -8,7 +8,7 @@ import dayjs from "dayjs";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import TaskIcon from "../../../icons/TaskIcon";
 import ListIcon from "../../../icons/ListIcon";
-import BoardIcon from "../../../icons/Boardicon";
+import BoardIcon from "../../../icons/BoardIcon";
 import LogoutIcon from "../../../icons/LogoutIcon";
 import SearchIcon from "../../../icons/SearchIcon";
 import TaskHeader from "./TaskHeader";
