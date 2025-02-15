@@ -44,6 +44,8 @@
 }
 
 .task-icon {
+  font-size: 16px;
+    color: inherit;
     width: 32px;
     height: 32px;
 }
@@ -343,3 +345,108 @@
     justify-content: center;
     gap: 8px;
   }
+
+  @media screen and (max-width: 768px) {
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: #ffffff;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-left .logo-text {
+        font-size: 20px;
+        font-weight: bold;
+        color: #2F2F2F;
+    }
+
+    .navbar-right .user-info .profile-image {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+
+    .filters {
+      display: flex;
+      /* justify-content: space-between; */
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 8px;
+      padding: 10px;
+  }
+
+  .filter-section {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 8px;
+      width: 70%;
+  }
+
+  .filter-item .MuiInputBase-root {
+    min-width: 120px;
+    border-radius: 20px !important; /* Rounded corners */
+    background-color: #fff;
+}
+
+  .filter-section .MuiTextField-root {
+      flex: 1;
+      background: #F8F8F8;
+      border-radius: 20px;
+  }
+
+  .search-create-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      width: 100%;
+  }
+
+  .search-bar {
+      display: flex;
+      align-items: center;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 25px;
+      background: #fff;
+      width: 100%;
+  }
+
+  .search-bar input {
+      border: none;
+      background: transparent;
+      flex: 1;
+      outline: none;
+  }
+
+  .add-task-button {
+      background-color: #7B1FA2; /* Adjust the color to match */
+      color: white;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 16px;
+      border: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      align-self: flex-end;
+  }
+
+  .main-content {
+    height: 100vh;  /* Set to full screen height */
+    overflow-y: auto; /* Allow scrolling */
+    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+  }  
+
+    /* Hide everything else in mobile view */
+    .navbar-middle,
+    .task-icon,
+    /* .logout-button, */
+    .user-name
+    {
+        display: none !important;
+    }
+}

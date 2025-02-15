@@ -4,7 +4,8 @@ import taskReducer from "./src/components/Task/task.slice";
 
 const rootReducer = combineReducers({
   login: loginReducer,
-  task: taskReducer,
+  tasks: taskReducer,
 });
 
+export type RootState = ReturnType<typeof rootReducer>;
 export default rootReducer;

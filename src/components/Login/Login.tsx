@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { handleLogin } from "./login.actions";
 import TaskIcon from "../../../icons/TaskIcon";
 import GoogleIcon from "../../../icons/GoogleIcon";
 import CirclesIcon from "../../../icons/CirclesIcon";
+import { RootState } from "../../../reduxStore";
+import { handleLogin } from "./login.actions";
+import { login } from "./login.slice";
 import "./login.css";
 
 const styles = {
@@ -26,10 +28,18 @@ const styles = {
     }
 };
 
-const Login = () => {
-    const user = useSelector((state) => state.login?.user);
+const Login: React.FC = () => {
+    const user = useSelector((state: RootState) => state.login.user);
     const dispatch = useDispatch();
 
+    useEffect(()=>{
+        const storedUser = localStorage.getItem("user");
+        if(storedUser && !user){
+            const userData = JSON.parse(storedUser);
+            dispatch(login(userData));
+        }
+    },[dispatch, user]);
+    
     if (user) {
         // Redirect to landing page if logged in
         return <Navigate to="/landingPage" />;

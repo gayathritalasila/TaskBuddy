@@ -1,6 +1,10 @@
 import React from 'react';
 
-const CirclesIcon: React.FC = ({style}) => {
+interface CirclesIconProps {
+  style?: React.CSSProperties;
+}
+
+const CirclesIcon: React.FC<CirclesIconProps> = ({style}) => {
   return (
     <div style={style}>
     <svg width="745" height="773" viewBox="0 0 745 773" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -3,11 +3,12 @@ import React from "react";
 interface TaskIconProps {
   style?: React.CSSProperties;
   color?: string;
+  className?: string;
 }
 
-const TaskIcon: React.FC<TaskIconProps> = ({ style, color = "#7B1984" }) => {
+const TaskIcon: React.FC<TaskIconProps> = ({ style, color = "#7B1984",className }) => {
   return (
-    <div style={style}>
+    <div className={className} style={style}>
       <svg
         width="34"
         height="34"
