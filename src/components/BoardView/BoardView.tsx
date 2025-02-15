@@ -23,6 +23,7 @@ import DeleteIcon from "../../../icons/DeleteIcon";
 import CreateTaskDialog from "../Task/CreateTaskDialog";
 import { Task } from "../Task/task.state";
 import { AppDispatch } from "../../../reduxStore";
+import SearchNotFoundIcon from "../../../icons/SearchNotFoundIcon";
 
 interface BoardViewProps {
   tasks: Task[];
@@ -114,9 +115,25 @@ const BoardView: React.FC<BoardViewProps> = ({ tasks }) => {
     dispatch(updateTask({ id: draggableId, updates: { status: destination.droppableId } }));
   };
 
+  const allTasksEmpty = Object.values(categorizedTasks).every((tasks) => tasks.length === 0);
+
   return (
     <Box>
       <DragDropContext onDragEnd={handleDragEnd}>
+        {allTasksEmpty ? (
+          <Box
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
+          sx={{ marginTop: "50px", color: "#888", textAlign: "center" }}
+        >
+          <SearchNotFoundIcon style={{ fontSize: 80 }} />
+          <Typography variant="body2" sx={{ marginTop: "10px" }}>
+            No tasks found
+          </Typography>
+        </Box>
+        ): (
         <Box display="flex" gap={3}>
           {["TO-DO", "IN-PROGRESS", "COMPLETED"].map((section) => (
             <Droppable droppableId={section} key={section}>
@@ -219,7 +236,6 @@ const BoardView: React.FC<BoardViewProps> = ({ tasks }) => {
               )}
             </Droppable>
           ))}
-
           <Menu anchorEl={anchorEl}
             open={Boolean(anchorEl)}
             onClose={handleMenuClose}
@@ -252,6 +268,7 @@ const BoardView: React.FC<BoardViewProps> = ({ tasks }) => {
             }}> <DeleteIcon style={{ fontSize: "18px", color: "red" }} /> Delete</MenuItem>
           </Menu>
         </Box>
+        )}
       </DragDropContext>
       {openDialog && (
         <CreateTaskDialog
