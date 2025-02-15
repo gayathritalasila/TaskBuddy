@@ -4,6 +4,7 @@ export interface User {
     email: string;
     photoURL: string;
     bio?: string;
+    isNewUser?: boolean;
 }
 
 export interface LoginState {

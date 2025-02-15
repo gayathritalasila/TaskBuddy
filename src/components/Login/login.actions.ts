@@ -29,16 +29,19 @@ const handleLogin = async (dispatch: AppDispatch): Promise<void> => {
       const userSnapshot = await getDoc(userRef);
 
       let userBio = "";
+      let isNewUser = false;  // Track if user is new
+
       if (userSnapshot.exists()) {
         userBio = userSnapshot.data()?.bio || "";
       } else {
-        // If the user doesn't exist in Firestore, create an initial entry
         await setDoc(userRef, {
           displayName: user.displayName || "",
           photoURL: user.photoURL || "",
           email: user.email || "",
           bio: "",
+          createdAt: new Date(),  // Store account creation time
         });
+        isNewUser = true;
       }
 
       // Dispatch user data to Redux store
@@ -48,10 +51,17 @@ const handleLogin = async (dispatch: AppDispatch): Promise<void> => {
         displayName: user.displayName || "",
         photoURL: user.photoURL || "",
         bio: userBio,
+        isNewUser, // Add new user flag
       };
 
-      localStorage.setItem("user",JSON.stringify(userData));
+      localStorage.setItem("user", JSON.stringify(userData));
       dispatch(login(userData));
+
+      if (isNewUser) {
+        console.log("Welcome! This is a new user.");
+      } else {
+        console.log("Existing user logged in.");
+      }
     }
   } catch (error) {
     console.error("Error during login:", (error as Error).message);

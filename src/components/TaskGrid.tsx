@@ -460,7 +460,9 @@ const TaskGrid: React.FC<{ tasks: Task[] }> = ({ tasks }) => {
         ):(
           <div className="no-tasks-container">
           <SearchNotFoundIcon />
-          <p className="no-tasks-text">It looks like we can't find any result that match.</p>
+          <p className="no-tasks-text">{users?.isNewUser
+      ? "Welcome! Start by creating your first task."
+      : "It looks like we can't find any results that match."}</p>
         </div>
         )}
 

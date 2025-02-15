@@ -24,6 +24,7 @@ import CreateTaskDialog from "../Task/CreateTaskDialog";
 import { Task } from "../Task/task.state";
 import { AppDispatch } from "../../../reduxStore";
 import SearchNotFoundIcon from "../../../icons/SearchNotFoundIcon";
+import { RootState } from "../../../rootReducer";
 
 interface BoardViewProps {
   tasks: Task[];
@@ -31,6 +32,7 @@ interface BoardViewProps {
 
 const BoardView: React.FC<BoardViewProps> = ({ tasks }) => {
   const dispatch = useDispatch<AppDispatch>();
+  const users = useSelector((state:RootState)=> state.login.user);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [currentTaskId, setCurrentTaskId] = useState<string | null>(null);
   const [currentTask, setCurrentTask] = useState<Task>({
@@ -130,7 +132,9 @@ const BoardView: React.FC<BoardViewProps> = ({ tasks }) => {
         >
           <SearchNotFoundIcon style={{ fontSize: 80 }} />
           <Typography variant="body2" sx={{ marginTop: "10px" }}>
-            No tasks found
+          {users?.isNewUser
+      ? "Welcome! Start by creating your first task."
+      : "It looks like we can't find any results that match."}
           </Typography>
         </Box>
         ): (

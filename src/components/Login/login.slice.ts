@@ -17,6 +17,7 @@ const loginSlice = createSlice({
                 email: user.email,
                 photoURL: user.photoURL,
                 bio: user.bio,
+                isNewUser: user.isNewUser,
             };
         },
         logout: (state) => {
